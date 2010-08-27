@@ -15,6 +15,23 @@ h2. Usage
 rake generate
 </pre></notextile>
 
+The static site is output to the _site directory.
+
 h2. Layouts
 
 Wiki pages are rendered using the file "layout.html" if present.
+
+Layouts are loaded recursively from the wiki pages parent directory. For example:
+
+layout.html
+Home.md
+sub_dir/
+	layout.html
+	Page1.md
+sub_dir2/
+	Page2.md
+
+The "Page1.md" page will use "sub_dir/layout.html".
+The "Page2.md" page will use "layout.html".
+
+
