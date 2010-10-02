@@ -83,7 +83,7 @@ class StaticWiki
         f.write(page.raw_data)
       end
       if page.is_a?(Gollum::Page)
-        f = File.new("_site/" + page.name + ".html", "w")
+        f = File.new("_site/" + page.name, "w")
         template = get_template(File.dirname(page.path))
         if template.nil?
           data = page.formatted_data
@@ -106,7 +106,7 @@ class StaticWiki
 end
 
 task :generate do
-  wiki = Gollum::Wiki.new("")
+  wiki = Gollum::Wiki.new("", {:base_path => "./"})
   static_wiki = StaticWiki.new(wiki)
   static_wiki.generate("master")
 end
