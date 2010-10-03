@@ -10,15 +10,6 @@ require 'liquid'
 # clean (delete _site)
 
 module Gollum
-  class File
-    attr_writer :version
-    def populate(blob, path)
-      @blob = blob
-      @path = (path + '/' + blob.name)[1..-1]
-      self
-    end
-  end
-
   class Wiki
     attr_reader :page_class
     attr_reader :file_class
@@ -52,8 +43,7 @@ class StaticWiki
           page.version = commit
           list << page
         else
-          file = @wiki.file_class.new(@wiki).populate(item, path)
-          file.version = commit
+          file = @wiki.file(item.name, commit.to_s)
           if item.name == "layout.html"
             @templates[File.dirname(path)] = ::Liquid::Template.parse(file.raw_data)
           elsif path == "" && item.name == "Rakefile"
