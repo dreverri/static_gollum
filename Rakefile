@@ -12,7 +12,6 @@ require 'liquid'
 module Gollum
   class Wiki
     attr_reader :page_class
-    attr_reader :file_class
   end
 
   class Page
