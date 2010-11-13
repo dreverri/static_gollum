@@ -105,6 +105,7 @@ class StaticWiki
   end
 end
 
+desc "Generates the static wiki"
 task :generate do
   wiki = Gollum::Wiki.new("")
   static_wiki = StaticWiki.new(wiki)
