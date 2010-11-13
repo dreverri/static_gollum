@@ -19,7 +19,7 @@ The static site is output to the _site directory.
 
 h2. Layouts
 
-Wiki pages are rendered using the file "layout.html" if present.
+Wiki pages are rendered using the file "layout.html" if present in your wiki repository.
 
 Layouts are loaded recursively from the wiki pages parent directory. For example:
 
